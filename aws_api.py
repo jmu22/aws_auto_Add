@@ -19,7 +19,7 @@ for line in inputfile:
         print("Failed to discover datacenters for account " + line + " The error is " + str(response.status_code))
     else:
         print("Successfully added AWS Account " + line)
-print("Job has finished")
+print("Job has finished!")
 
 
 
