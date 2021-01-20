@@ -11,10 +11,10 @@ for line in inputfile:
     line = line.strip('\n')
     myobj = {
         "account_id": line,
-        "access_role_name": "svc-operations-snow-crossaccount",
-        "accessor_id": "142855751540"
+        "access_role_name": "assume_role",
+        "accessor_id": "mid_account"
     }
-    response = requests.post("https://asuriondev.service-now.com/api/asrp/aws_endpoint/snowdiscovery", json = myobj, headers = headers,  auth=HTTPBasicAuth(os.environ.get('asurion_user'),os.environ.get('asurion_pass')))
+    response = requests.post("https://instance_name.service-now.com/api/asrp/aws_endpoint/snowdiscovery", json = myobj, headers = headers,  auth=HTTPBasicAuth(os.environ.get('asurion_user'),os.environ.get('asurion_pass')))
     if (response.status_code != 200):
         print("Failed to discover datacenters for account " + line + " The error is " + str(response.status_code))
     else:
